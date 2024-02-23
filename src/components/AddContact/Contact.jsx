@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 import Input from "./Input";
 
@@ -36,6 +36,10 @@ function Contact({ setContactList, contactList }) {
       });
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("contactList", JSON.stringify(contactList));
+  }, [contactList]);
 
   return (
     <div className="w-[80%] p-6 rounded-xl shadow-lg mt-8">

@@ -4,7 +4,11 @@ import ContactList from "./components/ContactList/ContactList";
 import Header from "./components/Header";
 
 function App() {
-  const [contactList, setContactList] = useState([]);
+  const [contactList, setContactList] = useState(
+    JSON.parse(localStorage.getItem("contactList"))
+      ? JSON.parse(localStorage.getItem("contactList"))
+      : []
+  );
 
   return (
     <div className="max-w-6xl mx-auto flex flex-col items-center justify-center">
